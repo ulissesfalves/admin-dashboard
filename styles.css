@@ -3,20 +3,20 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .dashboard {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    height: 100vh;
-    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .sidebar {
     background-color: #242424;
     color: white;
-    padding: 40px;
-    padding-left: 70px;
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background-color: rgba(152,136,41);
+    background-color: rgba(152, 136, 41);
 }
 
 .main-content {
@@ -47,13 +47,14 @@ body {
     flex-direction: column;
     box-sizing: border-box;
     background-color: #505c7c;
+    flex-grow: 1;
 }
 
 .header {
     display: flex;
     flex-direction: column;
     background-color: #282e3c;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
@@ -68,9 +69,15 @@ body {
 
 .header-down {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (min-width: 768px) {
+    .header-down {
+        flex-direction: row;
+    }
 }
 
 .search-bar {
@@ -80,14 +87,15 @@ body {
 }
 
 .search-bar input {
-    width: 800px;
+    width: 100%;
+    max-width: 300px;
     height: 25px;
     border-radius: 20px;
     border: none;
     outline: none;
     padding: 5px 15px;
     background-color: #f4f4f4de;
-    border-color:   #f4f4f4de;
+    border-color: #f4f4f4de;
 }
 
 .search-pic {
@@ -105,14 +113,14 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-right: 60px;
+    padding-right: 20px;
     color: #fdff00;
 }
 
 .user-avatar {
     width: 50px;
     height: 50px;
-    background-color: 	#282e3c;
+    background-color: #282e3c;
     border-radius: 50%;
     margin-right: 20px;
     background-size: contain;
@@ -129,7 +137,7 @@ body {
 .profile-pic {
     width: 80px;
     height: 80px;
-    background-color:  	#282e3c;
+    background-color: #282e3c;
     border-radius: 50%;
     margin-right: 20px;
     background-image: url('img/batman-profile-img.png');
@@ -147,14 +155,14 @@ body {
 }
 
 .actions {
-    padding-right: 60px;
+    padding-right: 20px;
 }
 
 .actions button {
     background-color: #505c7c;
     color: #fdff00;
     border: none;
-    padding: 10px 30px;
+    padding: 10px 20px;
     border-radius: 20px;
     margin-left: 10px;
     cursor: pointer;
@@ -162,7 +170,7 @@ body {
 }
 
 .actions button:hover {
-    background-color: rgba(152,136,41);
+    background-color: rgba(152, 136, 41);
 }
 
 .content {
@@ -175,7 +183,14 @@ body {
 
 .projects-announcements {
     display: flex;
+    flex-direction: column;
     gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .projects-announcements {
+        flex-direction: row;
+    }
 }
 
 .projects {
@@ -188,13 +203,19 @@ body {
 
 .your-projects {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .your-projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .project-card {
     color: white;
-    background-color:	#282e3c;
+    background-color: #282e3c;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -208,18 +229,19 @@ body {
     gap: 20px;
 }
 
-.right-sidebar h2{
+.right-sidebar h2 {
     color: #fdff00;
     margin-bottom: 0;
 }
 
-.right-sidebar .trends{
+.right-sidebar .trends {
     margin-bottom: 10px;
 }
 
-.announcements, .trending-section {
+.announcements,
+.trending-section {
     color: white;
-    background-color:  	#282e3c;
+    background-color: #282e3c;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -230,7 +252,7 @@ body {
     margin-bottom: 20px;
 }
 
-.announcement h2{
+.announcement h2 {
     margin-top: 0;
 }
 
@@ -239,3 +261,22 @@ body {
     padding-top: 21px;
 }
 
+@media (min-width: 768px) {
+    .dashboard {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+    }
+
+    .sidebar {
+        padding: 40px;
+        padding-left: 70px;
+    }
+
+    .actions button {
+        padding: 10px 30px;
+    }
+
+    .search-bar input {
+        max-width: 800px;
+    }
+}
